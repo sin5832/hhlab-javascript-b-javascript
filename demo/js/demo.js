@@ -62,6 +62,12 @@ require(["jquery", "../../lib/main"], function($) {
       var itemsim = recommendations.calculateSimilarItems(source);
       $('[name="c70_result"]', this).first().html(JSON.stringify(itemsim));
       
+      //2.7.2
+      var c72_target = $('[name="c72_target"]', this).first().val();
+      var c72_result = recommendations.getRecommendedItems(source, itemsim, c72_target);
+      $('[name="c72_result"]', this).first().html(c72_result.join('<br>'));
+      
+      
     });
 
   });
