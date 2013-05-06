@@ -1,7 +1,7 @@
 require(["jquery", "../../lib/main"], function($) {
   $(function() {
 
-    // ‚Æ‚è‚ ‚¦‚¸AƒtƒH[ƒ€‚É“ü—Í‚³‚ê‚½ƒf[ƒ^‚ğ‚Â‚©‚¤‚½‚ß‚Ì—pˆÓ
+    // ï¿½Æ‚è‚ ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½tï¿½Hï¿½[ï¿½ï¿½ï¿½É“ï¿½ï¿½Í‚ï¿½ï¿½ê‚½ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß‚Ì—pï¿½ï¿½
     var makeOption = (function ($form) {
       var func = function ($form) {
         var source = JSON.parse( $('[name="source"]', $form).first().val() ) || '';
@@ -14,10 +14,10 @@ require(["jquery", "../../lib/main"], function($) {
         }
       };
 
-      // ‰‰ñ“Ç‚İ‚İ‚É‚àÀs
+      // ï¿½ï¿½ï¿½ï¿½ï¿½Ç‚İï¿½ï¿½İï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½s
       func();
 
-      // [name="source"]‚Ì•ÏX‚ª‚ ‚Á‚½‚Æ‚«‚Éoption‚ğÄ\¬
+      // [name="source"]ï¿½Ì•ÏXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½optionï¿½ï¿½ï¿½Ä\ï¿½ï¿½
       $( $('[name="source"]').first() ).on('keyup change', function (e) {
         func( $(this).closest('form') );
       });
@@ -25,10 +25,10 @@ require(["jquery", "../../lib/main"], function($) {
       return func;
     })();
 
-    // Recommendations ‚ğ‚Â‚©‚¤
+    // Recommendations ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½
     var recommendations = new Recommendations();
 
-    // 2Í
+    // 2ï¿½ï¿½
     $('#demo-form-chapter2').on('submit', function (e) {
       e.preventDefault();
 
@@ -57,6 +57,12 @@ require(["jquery", "../../lib/main"], function($) {
       var movies = recommendations.transformPrefs(source);
       var c50_result = recommendations.topMatches(movies, movie_title);
       $('[name="c50_result"]', this).first().html(movie_title + '<br>' + c50_result.join('<br>'));
+      
+       //2.6
+      var movie_title = 'Superman Returns'
+      var movies = recommendations.transformPrefs(source);
+      var c60_result = recommendations.topMatches(movies, movie_title);
+      $('[name="c60_result"]', this).first().html(movie_title + '<br>' + c60_result.join('<br>'));
       
       //2.7
       var itemsim = recommendations.calculateSimilarItems(source);
