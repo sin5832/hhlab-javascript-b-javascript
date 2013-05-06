@@ -58,12 +58,6 @@ require(["jquery", "../../lib/main"], function($) {
       var c50_result = recommendations.topMatches(movies, movie_title);
       $('[name="c50_result"]', this).first().html(movie_title + '<br>' + c50_result.join('<br>'));
       
-       //2.6
-      var movie_title = 'Superman Returns'
-      var movies = recommendations.transformPrefs(source);
-      var c60_result = recommendations.topMatches(movies, movie_title);
-      $('[name="c60_result"]', this).first().html(movie_title + '<br>' + c60_result.join('<br>'));
-      
       //2.7
       var itemsim = recommendations.calculateSimilarItems(source);
       $('[name="c70_result"]', this).first().html(JSON.stringify(itemsim));
@@ -73,6 +67,9 @@ require(["jquery", "../../lib/main"], function($) {
       var c72_result = recommendations.getRecommendedItems(source, itemsim, c72_target);
       $('[name="c72_result"]', this).first().html(c72_result.join('<br>'));
       
+      //2.8
+      var itemsim = recommendations.calculateSimilarItems(source);
+      $('[name="c80_result"]', this).first().html(JSON.stringify(itemsim));
       
     });
 
